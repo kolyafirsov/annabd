@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Anna Andreevna's B-Day Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Start Screen -->
+        <div id="screen-start" class="screen active">
+            <h1>Сложные будни мечтательницы</h1>
+            <h2>B-Day Edition</h2>
+            <div style="text-align: center; margin-bottom: 30px; color: #888;">
+                <p>Время отложить денюжки на дом!</p>
+            </div>
+            <button id="btn-start" class="btn">Начать копить</button>
+        </div>
+
+        <!-- Level 1: Tax Runner -->
+        <div id="screen-game-1" class="screen">
+            <div id="hud">
+                <div class="stat-box">💰 Баланс: <span id="balance">0</span> ₽</div>
+                <div class="stat-box" style="display: none;">🏆 Счёт: <span id="score">0</span></div>
+                <button id="btn-manual-finish" class="btn"
+                    style="display: none; padding: 5px 15px; font-size: 0.7rem; background: var(--accent);">Завершить
+                    уровень</button>
+            </div>
+            <div id="game-container">
+                <div id="tax-inspector"></div>
+                <div id="player"></div>
+                <!-- Ground -->
+                <div class="game-ground"></div>
+            </div>
+            <!-- Jump button for mobile -->
+            <button id="jump-btn" aria-label="Прыжок" style="display: none;">↑</button>
+            <div class="game-instr">Нажимай пробел или тапай, чтобы прыгать</div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="screen-over" class="screen">
+            <h1 id="over-title">ОЙ-ОЙ...</h1>
+            <div id="fail-container">
+                <img id="fail-img" src="img/fail.png" alt="fail" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <p id="over-msg" style="margin-bottom: 24px; text-align: center;"></p>
+            <div class="btn-row">
+                <button id="btn-restart" class="btn">Заново</button>
+                <button id="btn-over-next" class="btn" style="display: none; background: var(--accent);">Идти
+                    дальше</button>
+            </div>
+        </div>
+
+        <!-- Success Screen / Next Level -->
+        <div id="screen-success" class="screen">
+            <h1>УСПЕХ!</h1>
+            <h2 id="success-balance">Вы заработали 0 ₽</h2>
+            <div id="success-message" style="margin-bottom: 16px; color: var(--accent); text-align: center;"></div>
+            <div class="btn-row">
+                <button id="btn-restart-success" class="btn"
+                    style="background: rgba(255,255,255,0.1); color: white;">Еще разок (набить баллы)</button>
+                <button id="btn-next-level" class="btn" style="display: none;">Идти дальше</button>
+            </div>
+        </div>
+
+        <!-- Level 2: Business Quest -->
+        <div id="screen-game-2" class="screen">
+            <div id="hud-2">
+                <div class="stat-box">💰 Общий банк: <span id="total-balance-2">0</span> ₽</div>
+            </div>
+            <h2 style="color: var(--gold);">Семь пятниц на неделе</h2>
+            <div id="quest-card">
+                <p id="quest-text"></p>
+                <div class="quest-btns">
+                    <button id="quest-btn-1" class="btn">Option 1</button>
+                    <button id="quest-btn-2" class="btn">Option 2</button>
+                </div>
+            </div>
+            <div id="quest-feedback"
+                style="margin-top: 16px; font-style: italic; color: var(--accent); text-align: center; padding: 0 10px;">
+            </div>
+        </div>
+
+        <!-- Level 3: Money Catcher -->
+        <div id="screen-game-3" class="screen">
+            <div id="hud-3">
+                <div class="stat-box">🏙 Банк: <span id="total-balance-3">0</span> ₽</div>
+                <div class="stat-box">💰 <span id="balance-3">0</span> ₽</div>
+                <div class="stat-box">⏳ <span id="timer-3">30</span>с</div>
+            </div>
+            <div id="catcher-container">
+                <div id="safe">СЕЙФ</div>
+            </div>
+            <div class="game-instr">Двигай мышкой или пальцем, чтобы ловить профит!</div>
+        </div>
+
+        <div id="screen-win" class="screen">
+            <h1>БИЗНЕС-WOMAN!</h1>
+            <h2 style="color: var(--gold);">Итоговый баланс: <span id="final-balance">0</span> ₽</h2>
+            <div style="text-align: center; margin: 20px 0; line-height: 1.6; padding: 0 10px;">
+                <p>Ты прошла через огонь, воду и сайт с авиабилетами</p>
+                <p style="font-weight: bold; color: var(--accent); margin-top: 10px;">
+                    Сделай скрин этого экрана, отправь его Колечке и Юлечке<br>
+                    и получи свой заслуженный КЭЭЭШШШШ!
+                </p>
+            </div>
+            <button id="btn-collect" class="btn">Попробовать еще раз</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+
+</html>
